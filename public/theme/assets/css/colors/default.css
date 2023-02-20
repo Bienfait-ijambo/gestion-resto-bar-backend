@@ -1,0 +1,72 @@
+/**=========================
+    Author: ThemeForts
+    Author URI: https://themeforest.net/user/themeforts
+    Description: Biznixa - Corporate Business HTML5 Template
+=========================**/
+
+/**=========================
+[Table of contents]
+
+01. BACKGROUND
+02. COLOR
+03. BORDER
+=========================**/
+
+/**=========================
+    START BACKGROUND
+=========================**/
+.theme-bg-default,
+.theme-bg-default-before:before,
+.theme-btn-default,
+.theme-btn-white.active,
+.theme-btn-white:before,
+.theme-btn-white:hover,
+.theme-bg-default,
+.theme-bg-default-before:before,
+.slick-prev:before,
+.slick-next:before,
+.footer-item .social-media-icons li a:hover{
+	background-color: #a52a1f;
+}
+
+/* light */
+.theme-bg-default-light,
+.theme-bg-default-light-before:before{
+	background-color: #eef7ff;
+}
+/**=========================
+    END BACKGROUND
+=========================**/
+
+/**=========================
+    START COLOR
+=========================**/
+a:hover,
+.theme-btn-light,
+.theme-btn-white,
+.theme-text-default,
+#header .nav-item.active .nav-link,
+#header .nav-item:hover .nav-link,
+#header .dropdown-item:hover,
+#header .dropdown:hover .dropdown-toggle::after,
+.client-says-img-content a:hover h4,
+.blog-item .card:hover h4 a,
+.recent-post-list a:hover h6,
+.footer-item .social-media-icons li a:hover{
+	color: #a52a1f;
+}
+/**=========================
+    END COLOR
+=========================**/
+
+/**=========================
+    START BORDER
+=========================**/
+.form-control:focus,
+.form-control:active,
+.form-control:hover{
+	border-color: #a52a1f;
+}
+/**=========================
+    END BORDER
+=========================**/

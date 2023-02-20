@@ -1,0 +1,133 @@
+@media (max-width: 1500px) {
+}
+@media (max-width: 1200px) {
+}
+@media (min-width: 991px) and (max-width: 1200px) {
+}
+@media (max-width: 1000px) {
+	.work-process-left .work-process-warp [class*="col-"]:nth-child(even){
+	    margin-top: 0px;
+	}
+}
+@media (max-width: 991px) {
+	#top-header .top-header-left,
+	#top-header .top-header-right{
+		text-align: center;
+		margin: 5px 0px;
+	}
+	#header .navbar-collapse ::selection{
+		color: #fff;
+		background-color: #a52a1f;
+	}
+	#header .navbar-collapse ::-webkit-scrollbar{
+	    background-color: #ccc;
+	    width: 7px;
+	}
+	#header .navbar-collapse ::-webkit-scrollbar-thumb{
+	    background-color: #a52a1f;
+	}
+	#header{
+		padding: 20px 0px;
+	}
+	#header .header-right-btn{
+		display: none;
+	}
+	#header .navbar-collapse{
+		margin-top: 20px;
+	}
+	#header .nav-item{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	#header .nav-link{
+		padding: 15px 0px;
+	}
+	#header .navbar-nav{
+		height: 350px;
+    	overflow-y: scroll;
+	}
+	#header.header-transparent .nav-item .nav-link{
+		padding: 20px;
+	}
+	/* header transparent */
+	#header.header-transparent .nav-item.active .nav-link,
+	#header.header-transparent .nav-item:hover .nav-link,
+	#header.header-transparent .dropdown:hover .dropdown-toggle::after{
+	    color: #a52a1f;
+	}
+	#header.header-transparent .navbar-collapse{
+		background-color: #fff;
+    	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+	}
+	#header.header-transparent .nav-item .nav-link{
+	    color: #343a40;
+	}
+	.about-us-right{
+		padding-left: 0px;
+	}
+	.section-header,
+	.section-footer{
+		width: 100%;
+	}
+	.work-process-col-icon:after{
+		left: 0;
+	}
+	.work-process-col-icon-last:after{
+	    display: block;
+	}
+	.theme-shuffle [class*="col-"]{
+		max-width: 50%;
+	}
+	.sub-footer-left,
+	.sub-footer-right{
+		text-align: center;
+		margin: 5px 0px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+}
+@media (max-width: 960px) {
+	#slider-carousel h1{
+		font-size: 30px;
+	}
+}
+@media (max-width: 860px) {
+}	
+@media (max-width: 767px) {
+	#slider-carousel .carousel-caption{
+		width: 90%;
+	}
+	#slider-carousel .carousel-item{
+		height: 550px;
+	}
+	.about-us-left .about-us-since{
+		right: 30px;
+	}
+	.theme-shuffle [class*="col-"]{
+		max-width: 100%;
+	}
+	#backtotop{
+		position: relative;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: 0px auto;
+		text-align: center;
+	}
+	#backtotop a{
+		width: 100%;
+		border-radius: 0px;
+	}
+}
+@media (max-width: 700px) {
+}
+@media (max-width: 600px) {
+}
+@media (max-width: 500px) {
+}
+@media (max-width: 470px) {
+}
+@media (max-width: 400px) {
+}
+@media (max-width: 330px) {
+}
