@@ -1,0 +1,11 @@
+1  CREATE VIEW expiredProducts as SELECT id,name,expiration_date,now() as now,datediff(expiration_date,now()) as daysLeft,current_shop,host_customer_id FROM products;
+
+
+2 CREATE VIEW stock_alert as SELECT products.id,products.name,products.security_stock,stocks.stock,products.current_shop,products.host_customer_id  FROM products INNER JOIN
+ stocks ON products.id=stocks.product_id WHERE stocks.stock <= products.security_stock;
+
+
+3   CREATE VIEW excel_report as SELECT cash_histories.id,cash_histories.created_at,cash_histories.accountancy_code,cash_histories.comment,cash_histories.client,
+        cash_histories.out_qty,cash_histories.amount, IF(cash_histories.currency =1,'USD','FC') as devise,
+         IF(cash_histories.status =1,'ENTREE','SORTIE') as movement,
+        IF(cash_histories.transaction_type =1,'BANQUE','CAISSE') as transaction,shops.name as shop_name,cash_histories.currency,cash_histories.status,cash_histories.transaction_type,cash_histories.current_shop,cash_histories.host_customer_id FROM cash_histories INNER JOIN shops ON cash_histories.current_shop=shops.id;
