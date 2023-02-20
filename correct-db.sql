@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 10:35 AM
+-- Generation Time: Feb 20, 2023 at 10:50 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -567,47 +567,6 @@ INSERT INTO `debt_payment_histories` (`id`, `customer_id`, `paid_amount`, `curre
 (23, 25, '1.3', 3, 11, NULL, NULL),
 (26, 17, '1', 3, 11, NULL, NULL),
 (27, 17, '1', 3, 11, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `excel_report`
--- (See below for the actual view)
---
-CREATE TABLE `excel_report` (
-`id` bigint(20) unsigned
-,`created_at` date
-,`accountancy_code` varchar(200)
-,`comment` text
-,`client` varchar(200)
-,`out_qty` int(11)
-,`amount` varchar(255)
-,`devise` varchar(3)
-,`movement` varchar(6)
-,`transaction` varchar(6)
-,`shop_name` varchar(255)
-,`currency` int(11)
-,`status` int(11)
-,`transaction_type` int(11)
-,`current_shop` int(11)
-,`host_customer_id` int(11)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `expiredproducts`
--- (See below for the actual view)
---
-CREATE TABLE `expiredproducts` (
-`id` bigint(20) unsigned
-,`name` varchar(255)
-,`expiration_date` varchar(255)
-,`now` datetime
-,`daysLeft` int(7)
-,`current_shop` int(11)
-,`host_customer_id` int(11)
-);
 
 -- --------------------------------------------------------
 
@@ -1284,21 +1243,6 @@ INSERT INTO `stocks` (`id`, `product_id`, `stock`, `current_shop`, `host_custome
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `stock_alert`
--- (See below for the actual view)
---
-CREATE TABLE `stock_alert` (
-`id` bigint(20) unsigned
-,`name` varchar(255)
-,`security_stock` int(11)
-,`stock` int(11)
-,`current_shop` int(11)
-,`host_customer_id` int(11)
-);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `supply_stocks`
 --
 
@@ -1594,33 +1538,6 @@ INSERT INTO `ym_customers` (`id`, `name`, `email`, `telephone`, `logo`, `start_d
 (9, 'YM-BIENFAIT', 'ijambo@gmail.ccom', '0991653604', NULL, '', '', 1, 2, NULL, NULL),
 (11, 'JORDAN-SHOP', 'jordan@gmail.com', '0909384', NULL, '2023-01-26', '2023-02-09', 1, 2, NULL, NULL),
 (12, 'LE MARQUIE-SHOP', 'marqui@gmail.com', '094893834', NULL, '2023-01-29', '2023-02-11', 1, 2, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure for view `excel_report`
---
-DROP TABLE IF EXISTS `excel_report`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `excel_report`  AS SELECT `cash_histories`.`id` AS `id`, `cash_histories`.`created_at` AS `created_at`, `cash_histories`.`accountancy_code` AS `accountancy_code`, `cash_histories`.`comment` AS `comment`, `cash_histories`.`client` AS `client`, `cash_histories`.`out_qty` AS `out_qty`, `cash_histories`.`amount` AS `amount`, if(`cash_histories`.`currency` = 1,'USD','FC') AS `devise`, if(`cash_histories`.`status` = 1,'ENTREE','SORTIE') AS `movement`, if(`cash_histories`.`transaction_type` = 1,'BANQUE','CAISSE') AS `transaction`, `shops`.`name` AS `shop_name`, `cash_histories`.`currency` AS `currency`, `cash_histories`.`status` AS `status`, `cash_histories`.`transaction_type` AS `transaction_type`, `cash_histories`.`current_shop` AS `current_shop`, `cash_histories`.`host_customer_id` AS `host_customer_id` FROM (`cash_histories` join `shops` on(`cash_histories`.`current_shop` = `shops`.`id`))  ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `expiredproducts`
---
-DROP TABLE IF EXISTS `expiredproducts`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `expiredproducts`  AS SELECT `products`.`id` AS `id`, `products`.`name` AS `name`, `products`.`expiration_date` AS `expiration_date`, current_timestamp() AS `now`, to_days(`products`.`expiration_date`) - to_days(current_timestamp()) AS `daysLeft`, `products`.`current_shop` AS `current_shop`, `products`.`host_customer_id` AS `host_customer_id` FROM `products``products`  ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `stock_alert`
---
-DROP TABLE IF EXISTS `stock_alert`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `stock_alert`  AS SELECT `products`.`id` AS `id`, `products`.`name` AS `name`, `products`.`security_stock` AS `security_stock`, `stocks`.`stock` AS `stock`, `products`.`current_shop` AS `current_shop`, `products`.`host_customer_id` AS `host_customer_id` FROM (`products` join `stocks` on(`products`.`id` = `stocks`.`product_id`)) WHERE `stocks`.`stock` <= `products`.`security_stock``security_stock`  ;
 
 --
 -- Indexes for dumped tables
